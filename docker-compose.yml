@@ -1,0 +1,24 @@
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    ports:
+      - '80:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/logs:/var/log/gitlab'
+      - '$GITLAB_HOME/data:/var/opt/gitlab'
+    networks:
+      - gitlab-ee
+
+  runner:
+    image: 'gitlab/gitlab-runner:alpine'
+    volumes:
+      - '/Users/Shared/gitlab-runner/config:/etc/gitlab-runner' # todo make /Users/Shared an env variable
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
+networks:
+  gitlab-ee:
+    name: 'gitlab-hse'
+    driver: 'bridge'
