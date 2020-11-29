@@ -20,19 +20,13 @@ Run in console:
 
 ## How to build godot on ci
 
-Create a project on the local gitlab with the name Godot and user root.  
-Push godot to the local gitlab:  
+1. Create a project on the local gitlab with the name Godot and user root.  
+2. Push godot to the local gitlab:  
 `cd godot`  
 `git remote add gitlab http://127.0.0.1/root/godot.git`  
 `git push gitlab`  
+3. Open gitlab piplines: http://127.0.0.1/root/godot/-/pipelines
 
-Gitlab ci file is located [here](gitlab/.gitlab-ci.yaml)
-
-Open gitlab piplines: http://127.0.0.1/root/godot/-/pipelines
-
-
-
-
-
-
+Godot with ci file is added as a submodule from gitlab: https://gitlab.com/pavelperc/godot  
+Gitlab ci is located here: https://gitlab.com/pavelperc/godot/-/blob/master/.gitlab-ci.yml  
 
