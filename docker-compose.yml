@@ -6,7 +6,7 @@ services:
       - '443:443'
       - '22:22'
     volumes:
-      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/config:/etc/gitlab' # GITLAB_HOME=$HOME/gitlab
       - '$GITLAB_HOME/logs:/var/log/gitlab'
       - '$GITLAB_HOME/data:/var/opt/gitlab'
     networks:
@@ -15,8 +15,10 @@ services:
   runner:
     image: 'gitlab/gitlab-runner:alpine'
     volumes:
-      - '/Users/Shared/gitlab-runner/config:/etc/gitlab-runner' # todo make /Users/Shared an env variable
+      - '$GITLAB_HOME/gitlab-runner/config:/etc/gitlab-runner'
       - '/var/run/docker.sock:/var/run/docker.sock'
+    networks:
+      - gitlab-ee
 
 networks:
   gitlab-ee:
