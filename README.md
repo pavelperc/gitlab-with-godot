@@ -26,6 +26,8 @@ Push godot to the local gitlab:
 `git remote add gitlab http://127.0.0.1/root/godot.git`  
 `git push gitlab`  
 
+Gitlab ci file is located [here](gitlab/.gitlab-ci.yaml)
+
 Open gitlab piplines: http://127.0.0.1/root/godot/-/pipelines
 
 
